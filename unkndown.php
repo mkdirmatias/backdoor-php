@@ -1477,7 +1477,146 @@ $archivos = array(); /* Array de archivos */
 	   <link rel='stylesheet' href='$iconos'>
 	   </head>
 	   <style type='text/css'>
-	   @import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+       @import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+       
+       .modal-open {
+        overflow: hidden;
+      }
+      .modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        display: none;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        outline: 0;
+      }
+      .modal.fade .modal-dialog {
+        -webkit-transform: translate(0, -25%);
+        -ms-transform: translate(0, -25%);
+        -o-transform: translate(0, -25%);
+        transform: translate(0, -25%);
+        -webkit-transition: -webkit-transform 0.3s ease-out;
+        -o-transition: -o-transform 0.3s ease-out;
+        transition: transform 0.3s ease-out;
+      }
+      .modal.in .modal-dialog {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+      .modal-open .modal {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 10px;
+      }
+      .modal-content {
+        position: relative;
+        background-color: #ffffff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #999999;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+        outline: 0;
+      }
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1040;
+        background-color: #000000;
+      }
+      .modal-backdrop.fade {
+        filter: alpha(opacity=0);
+        opacity: 0;
+      }
+      .modal-backdrop.in {
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+      }
+      .modal-header {
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .modal-header .close {
+        margin-top: -2px;
+      }
+      .modal-title {
+        margin: 0;
+        line-height: 1.42857143;
+      }
+      .modal-body {
+        position: relative;
+        padding: 15px;
+      }
+      .modal-footer {
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+      }
+      .modal-footer .btn + .btn {
+        margin-bottom: 0;
+        margin-left: 5px;
+      }
+      .modal-footer .btn-group .btn + .btn {
+        margin-left: -1px;
+      }
+      .modal-footer .btn-block + .btn-block {
+        margin-left: 0;
+      }
+      .modal-scrollbar-measure {
+        position: absolute;
+        top: -9999px;
+        width: 50px;
+        height: 50px;
+        overflow: scroll;
+      }
+      @media (min-width: 768px) {
+        .modal-dialog {
+          width: 600px;
+          margin: 30px auto;
+        }
+        .modal-content {
+          -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .modal-sm {
+          width: 300px;
+        }
+      }
+      @media (min-width: 992px) {
+        .modal-lg {
+          width: 900px;
+        }
+      }
+      .clearfix:before,
+      .clearfix:after,
+      .modal-header:before,
+      .modal-header:after,
+      .modal-footer:before,
+      .modal-footer:after {
+        display: table;
+        content: ' ';
+      }
+      .clearfix:after,
+      .modal-header:after,
+      .modal-footer:after {
+        clear: both;
+      }
+       
 	   body{
 	      margin: 20px;
 	      width:90%;
@@ -1809,9 +1948,9 @@ function seleccionar(){
 <style>::-webkit-scrollbar {
     display: none;}
 </style>
-<link rel='stylesheet' href='http://unkndown.esy.es/cdn/modal.css'>
-<script src='http://unkndown.esy.es/cdn/jqueri.js'></script>
-<script src='http://unkndown.esy.es/cdn/modal.js'></script>";
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+";
 closedir($gestor);
 }
 ?>
